@@ -17,6 +17,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator_It_D005", "Calcu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator_VC_It_1", "Calculator_VC\Calculator_VC_It_1.csproj", "{DDBDE958-2538-46D3-A8EE-C82BACCE632A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C22DE8BC-774E-45B0-9E9E-C6C112B0DE1F}"
+	ProjectSection(SolutionItems) = preProject
+		UserStory.txt = UserStory.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
