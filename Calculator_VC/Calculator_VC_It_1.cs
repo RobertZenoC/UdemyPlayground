@@ -18,7 +18,10 @@ namespace Calculator_VC
             Console.WriteLine("Please enter the second summand: ");
             Int64 dc_2nd = Convert.ToInt64(Console.ReadLine());
 
-            Console.WriteLine(Convert.ToString(dc_1st) + " + " + Convert.ToString(dc_2nd) + " = " + Convert.ToString((dc_1st + dc_2nd)));
+            // Calculate sum
+            Int64 dc_sum = dc_1st + dc_2nd;
+
+            Console.WriteLine(Convert.ToString(dc_1st) + " + " + Convert.ToString(dc_2nd) + " = " + Convert.ToString(dc_sum));
 
             Console.ReadKey();
         }
