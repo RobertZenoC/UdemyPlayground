@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Calculator_VC
 {
-    class Calculator_VC_It_1
+    class Calculator_VC
     {
         // User Story "Add": User wants to see sum of two digits that he enters
         // User Story: "Decimals": User wants to be able to work with decimal places
