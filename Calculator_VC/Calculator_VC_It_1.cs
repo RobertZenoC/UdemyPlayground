@@ -8,20 +8,21 @@ namespace Calculator_VC
 {
     class Calculator_VC_It_1
     {
-        // User Story "Add": - User wants to see sum of two digits that he enters
-        //                   - Any two integers can be added up correctly
+        // User Story "Add": User wants to see sum of two digits that he enters
+        // User Story: "Decimals": User wants to be able to work with decimal places
+        // Acceptance Criteria: Two numbers with or without decimal places get added correctly
         static void Main(string[] args)
         {
             Console.WriteLine("Please enter the first summand: ");
-            Int64 dc_1st = Convert.ToInt64(Console.ReadLine());
+            double d_1st = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Please enter the second summand: ");
-            Int64 dc_2nd = Convert.ToInt64(Console.ReadLine());
+            double d_2nd = Convert.ToDouble(Console.ReadLine());
 
             // Calculate sum
-            Int64 dc_sum = dc_1st + dc_2nd;
+            double d_sum = d_1st + d_2nd;
 
-            Console.WriteLine(Convert.ToString(dc_1st) + " + " + Convert.ToString(dc_2nd) + " = " + Convert.ToString(dc_sum));
+            Console.WriteLine(Convert.ToString(d_1st) + " + " + Convert.ToString(d_2nd) + " = " + Convert.ToString(d_sum));
 
             Console.ReadKey();
         }
