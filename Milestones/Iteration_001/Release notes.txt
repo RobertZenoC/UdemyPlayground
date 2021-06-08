@@ -1,0 +1,15 @@
+TAG:
+	Iteration_001 done
+
+TYPE:
+	Internal development release
+
+STATUS:
+	Informally tested - can be handed to test team
+
+VERSION:
+	1.0.7829.27280
+
+FUNCTION:
+	* Adds to numbers with or without decimal places
+	* Quick start (just start the .exe)
