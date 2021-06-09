@@ -9,12 +9,11 @@ Iteration 1
 # Acc:
         Any two integers can be added up correctly
 # Status:
-        - Implemented   2021.05.07
-        - Tested        2021.05.07
-        - Done          2021.05.08
+        - Implemented   2021.06.07
+        - Tested        2021.06.07
+        - Done          2021.06.08
 
-Iteration 2
------------
+
 # Title:
         Decimals
 # Story:
@@ -22,6 +21,30 @@ Iteration 2
 # Acc:
         Two numbers with or without decimal places get added correctly
 # Status:
-        - Implemented   2021.05.08
-        - Tested        2021.05.08
-        - Done          2021.05.08
+        - Implemented   2021.06.08
+        - Tested        2021.06.08
+        - Done          2021.06.08
+
+Iteration 2
+-----------
+# Title:
+        Substraction
+# Story:
+        User wants to be able to do substractions as well
+# Acc:
+        A number with or without decimal places gets substracted correctly from another number with or without decimal places
+# Status:
+        - Implemented   
+        - Tested        
+        - Done          
+
+# Title:
+        Software structure
+# Story:
+        Developer wants to structure the source code so that it will be easier to implement additional functions
+# Acc:
+        The principle of single level of abstraction is applied and if not, the exception is justified and documented
+# Status:
+        - Implemented   
+        - Tested        
+        - Done          
