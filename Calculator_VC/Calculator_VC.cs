@@ -22,11 +22,13 @@ namespace Calculator_VC
         // Acceptance Criteria: The principle of single level of abstraction is applied and if not, the exception is justified and documented
         static void Main(string[] args)
         {
-            Console.WriteLine("Please enter the first summand: ");
-            double d_1st = Convert.ToDouble(Console.ReadLine());
+            
+            string s_1st = GetUserInput("Please enter the first summand: ");
+            string s_2nd = GetUserInput("Please enter the second summand: ");
 
-            Console.WriteLine("Please enter the second summand: ");
-            double d_2nd = Convert.ToDouble(Console.ReadLine());
+            // Convert user input from string to double
+            double d_1st = Convert.ToDouble(s_1st);
+            double d_2nd = Convert.ToDouble(s_2nd);
 
             // Calculate sum
             double d_sum = Add(d_1st, d_2nd);
@@ -34,6 +36,14 @@ namespace Calculator_VC
             Console.WriteLine(Convert.ToString(d_1st) + " + " + Convert.ToString(d_2nd) + " = " + Convert.ToString(d_sum));
 
             WaitForUserInput();
+        }
+
+        static string GetUserInput(string prompt)
+        {
+            Console.WriteLine(prompt);
+            string s_input = Console.ReadLine();
+
+            return s_input;
         }
 
         static double Add(double d_1st, double d_2nd)
