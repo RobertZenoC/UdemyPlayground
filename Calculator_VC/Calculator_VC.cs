@@ -23,19 +23,37 @@ namespace Calculator_VC
         static void Main(string[] args)
         {
             
-            string s_1st = GetUserInput("Please enter the first summand: ");
-            string s_2nd = GetUserInput("Please enter the second summand: ");
+            string s_1st = GetUserInput("Please enter the first number: ");
+            string s_2nd = GetUserInput("Please enter the second number: ");
+            string s_operator = GetUserInput("Please enter the operator ('+', '-', '*' or '/': ");
 
             // Convert user input from string to double
+            // TODO: Move to own method, once the structure gets more complex
             double d_1st = Convert.ToDouble(s_1st);
             double d_2nd = Convert.ToDouble(s_2nd);
 
-            // Calculate sum
-            double d_sum = Add(d_1st, d_2nd);
+            // Calculation
+            double d_result = 0;
+            if (s_operator == "+")
+            {
+                d_result = Add(d_1st, d_2nd);
 
-            Console.WriteLine(Convert.ToString(d_1st) + " + " + Convert.ToString(d_2nd) + " = " + Convert.ToString(d_sum));
+                // Present result
+                Console.WriteLine("{0} {1} {2} = {3}", d_1st, s_operator, d_2nd, d_result);
+            }
+            else if (s_operator == "-")
+            {
+                d_result = Substract(d_1st, d_2nd);
 
-            WaitForUserInput();
+                // Present result
+                Console.WriteLine("{0} {1} {2} = {3}", d_1st, s_operator, d_2nd, d_result);
+            }
+            else
+            {
+                Console.WriteLine("Invalid operator: {0}", s_operator);
+            }
+
+            GetUserInput("(Press <CR> to quit)");
         }
 
         static string GetUserInput(string prompt)
@@ -53,10 +71,11 @@ namespace Calculator_VC
             return d_sum;
         }
 
-        static void WaitForUserInput()
+        static double Substract(double d_minuend, double d_subtrahend)
         {
-            Console.WriteLine("(Press <CR> to quit)");
-            Console.ReadLine();
+            double d_result = d_minuend - d_subtrahend;
+
+            return d_result;
         }
     }
 }

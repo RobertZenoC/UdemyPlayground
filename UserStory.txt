@@ -34,9 +34,9 @@ Iteration 2
 # Acc:
         A number with or without decimal places gets substracted correctly from another number with or without decimal places
 # Status:
-        - Implemented   
-        - Tested        
-        - Done          
+        - Implemented   2021.06.10
+        - Tested        2021.06.10
+        - Done          2021.06.10
 
 # Title:
         Software structure
@@ -45,6 +45,6 @@ Iteration 2
 # Acc:
         The principle of single level of abstraction is applied and if not, the exception is justified and documented
 # Status:
-        - Implemented   
-        - Tested        
-        - Done          
+        - Implemented   2021.06.09
+        - Tested        2021.06.09
+        - Done          2021.06.09, but it's a continuous process, really

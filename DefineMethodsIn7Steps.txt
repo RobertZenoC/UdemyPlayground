@@ -1,0 +1,7 @@
+1. Define Modifier (static and so on)
+2. Define data type of return value (void for none)
+3. Come up with a meaningful name
+4. Add a pair of brackets after the name
+5. If you need any parameters that get passed to the methode, define them with data type and name in those brackets
+6. Add a pair of curly brackets to take up the method's body
+7. Write the method between those curly brackets
