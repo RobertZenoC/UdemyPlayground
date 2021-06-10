@@ -34,23 +34,30 @@ namespace Calculator_VC
 
             // Calculation
             double d_result = 0;
-            if (s_operator == "+")
+            switch (s_operator)
             {
-                d_result = Add(d_1st, d_2nd);
+                case "+":
+                    d_result = Add(d_1st, d_2nd);
 
-                // Present result
-                Console.WriteLine("{0} {1} {2} = {3}", d_1st, s_operator, d_2nd, d_result);
-            }
-            else if (s_operator == "-")
-            {
-                d_result = Substract(d_1st, d_2nd);
+                    // Present result
+                    Console.WriteLine("{0} {1} {2} = {3}", d_1st, s_operator, d_2nd, d_result);
+                    break;
 
-                // Present result
-                Console.WriteLine("{0} {1} {2} = {3}", d_1st, s_operator, d_2nd, d_result);
-            }
-            else
-            {
-                Console.WriteLine("Invalid operator: {0}", s_operator);
+                case "-":
+                    d_result = Substract(d_1st, d_2nd);
+
+                    // Present result
+                    Console.WriteLine("{0} {1} {2} = {3}", d_1st, s_operator, d_2nd, d_result);
+                    break;
+
+                case "/":
+                case "*":
+                    Console.WriteLine("Operation '{0}' is not supported yet - but will be soon ;)", s_operator);
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid operator: {0}", s_operator);
+                    break;
             }
 
             GetUserInput("(Press <CR> to quit)");
