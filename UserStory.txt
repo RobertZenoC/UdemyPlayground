@@ -1,6 +1,6 @@
 User Stories Calculator
 =======================
-Iteration 1
+Iteration I
 -----------
 # Title:
         Add
@@ -25,8 +25,8 @@ Iteration 1
         - Tested        2021.06.08
         - Done          2021.06.08
 
-Iteration 2
------------
+Iteration II
+------------
 # Title:
         Substraction
 # Story:
@@ -48,3 +48,27 @@ Iteration 2
         - Implemented   2021.06.09
         - Tested        2021.06.09
         - Done          2021.06.09, but it's a continuous process, really
+
+Iteration III
+-------------
+# Title:
+        Multiplication, division
+# Story:
+        User wants to be able to do multiplications and divisions as well
+# Acc:
+        Multiplications and divisions get done correctly with any numbers with or without decimal places
+# Status:
+        - Implemented   2021.06.11
+        - Tested        2021.06.11
+        - Done          2021.06.11
+
+# Title:
+        Software structure
+# Story:
+        Developer wants to have an own method for the calculation as well as for presenting the result
+# Acc:
+        The principle of single level of abstraction is applied and if not, the exception is justified and documented
+# Status:
+        - Implemented   2021.06.11
+        - Tested        2021.06.11
+        - Done          2021.06.11
