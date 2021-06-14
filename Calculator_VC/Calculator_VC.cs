@@ -21,10 +21,12 @@ namespace Calculator_VC
         // User Story "Software Structure": Developer wants to structure the source code so that it will be easier to implement additional functions
         // Acceptance Criteria: The principle of single level of abstraction is applied and if not, the exception is justified and documented
 
-        // Iteration II
-        // ------------
+        // Iteration III
+        // -------------
         // User Story "Multiplication, division": User wants to be able to do multiplications and divisions as well
         // Acceptance Criteria: Multiplications and divisions get done correctly with any numbers with or without decimal places
+        // User Story "Software Structure": Developer wants to have an own method for the calculation as well as for presenting the result
+        // Acceptance Criteria: The principle of single level of abstraction is applied and if not, the exception is justified and documented
 
         static void Main(string[] args)
         {
@@ -77,19 +79,19 @@ namespace Calculator_VC
             switch (s_operator)
             {
                 case "+":
-                    d_result = d_1st + d_2nd;
+                    d_result = Add(d_1st, d_2nd);
                     break;
 
                 case "-":
-                    d_result = d_1st - d_2nd;
+                    d_result = Substract(d_1st, d_2nd);
                     break;
 
                 case "*":
-                    d_result = d_1st * d_2nd;
+                    d_result = Multiply(d_1st, d_2nd);
                     break;
 
                 case "/":
-                    d_result = d_1st / d_2nd;
+                    d_result = Divide(d_1st, d_2nd);
                     break;
 
                 default:
