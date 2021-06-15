@@ -41,17 +41,21 @@ namespace Calculator_VC
             double d_2nd = Convert.ToDouble(s_2nd);
 
             // Calculation
-            double d_result = 0;
             switch (s_operator)
             {
                 case "+":
                 case "-":
                 case "/":
                 case "*":
-                    // Get result
+                    // ## Get result:
+                    // Initialize object on class
                     CalculatorModel model = new CalculatorModel();
-                    d_result = model.Calculate(d_1st, d_2nd, s_operator);
-                    PresentResult(d_1st, d_2nd, s_operator, d_result);
+
+                    // Use method Calculate of object
+                    model.Calculate(d_1st, d_2nd, s_operator);
+
+                    // Result is the property d_Result of the object
+                    PresentResult(d_1st, d_2nd, s_operator, model.d_Result);
                     break;
 
                 default:

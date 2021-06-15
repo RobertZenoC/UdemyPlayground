@@ -8,33 +8,38 @@ namespace Calculator_VC
 {
     class CalculatorModel
     {
-        public double Calculate(double d_1st, double d_2nd, string s_operator)
-        {
-            double d_result = 0;
+        // Property
+        public double d_Result { get; private set; }
 
+        // Constructor
+        public CalculatorModel()
+        {
+            d_Result = 0;
+        }
+
+        public void Calculate(double d_1st, double d_2nd, string s_operator)
+        {
             switch (s_operator)
             {
                 case "+":
-                    d_result = Add(d_1st, d_2nd);
+                    d_Result = Add(d_1st, d_2nd);
                     break;
 
                 case "-":
-                    d_result = Substract(d_1st, d_2nd);
+                    d_Result = Substract(d_1st, d_2nd);
                     break;
 
                 case "*":
-                    d_result = Multiply(d_1st, d_2nd);
+                    d_Result = Multiply(d_1st, d_2nd);
                     break;
 
                 case "/":
-                    d_result = Divide(d_1st, d_2nd);
+                    d_Result = Divide(d_1st, d_2nd);
                     break;
 
                 default:
                     break;
             }
-
-            return d_result;
         }
 
         private double Add(double d_1st, double d_2nd)
