@@ -41,14 +41,17 @@ namespace Calculator_VC
             double d_2nd = Convert.ToDouble(s_2nd);
 
             // Calculation
+            double d_result = 0;
             switch (s_operator)
             {
                 case "+":
                 case "-":
                 case "/":
                 case "*":
-                    // Present result
-                    PresentResult(d_1st, d_2nd, s_operator, Calculate(d_1st, d_2nd, s_operator));
+                    // Get result
+                    CalculatorModel model = new CalculatorModel();
+                    d_result = model.Calculate(d_1st, d_2nd, s_operator);
+                    PresentResult(d_1st, d_2nd, s_operator, d_result);
                     break;
 
                 default:
@@ -72,61 +75,5 @@ namespace Calculator_VC
             Console.WriteLine("{0} {1} {2} = {3}", d_1st, s_operator, d_2nd, d_result);
         }
 
-        static double Calculate(double d_1st, double d_2nd, string s_operator)
-        {
-            double d_result = 0;
-
-            switch (s_operator)
-            {
-                case "+":
-                    d_result = Add(d_1st, d_2nd);
-                    break;
-
-                case "-":
-                    d_result = Substract(d_1st, d_2nd);
-                    break;
-
-                case "*":
-                    d_result = Multiply(d_1st, d_2nd);
-                    break;
-
-                case "/":
-                    d_result = Divide(d_1st, d_2nd);
-                    break;
-
-                default:
-                    break;
-            }
-
-            return d_result;
-        }
-
-        static double Add(double d_1st, double d_2nd)
-        {
-            double d_sum = d_1st + d_2nd;
-
-            return d_sum;
-        }
-
-        static double Substract(double d_minuend, double d_subtrahend)
-        {
-            double d_difference = d_minuend - d_subtrahend;
-
-            return d_difference;
-        }
-
-        static double Multiply(double d_multiplier, double d_multiplicand)
-        {
-            double d_product = d_multiplier * d_multiplicand;
-
-            return d_product;
-        }
-
-        static double Divide(double d_dividend, double d_divisor)
-        {
-            double d_fraction = d_dividend / d_divisor;
-
-            return d_fraction;
-        }
     }
 }

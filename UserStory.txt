@@ -72,3 +72,28 @@ Iteration III
         - Implemented   2021.06.11
         - Tested        2021.06.11
         - Done          2021.06.11
+
+Iteration VI
+------------
+Titel: Fortlaufende Berechnung
+Story: Als Benutzer möchte ich eine weitere Zahl eingeben, um die vorherige Operation nochmals auszuführen mit dem vorherigen Resultat und der neuen Zahl.
+Akzeptanzkriterien:
+	* Die Operation aus der vorherigen Berechnung wird nochmals verwendet
+	* Das neue Resultat wird ausgegeben ohne weitere Interaktion mit dem Benutzer
+Status:
+        - Implemented   
+        - Tested        
+        - Done          
+
+Titel: ObjektOrientierung
+Story: Als Entwickler möchte ich die Anwendung objektorientiert entwickeln, um später einfach weitere Funktionalitäten hinzufügen zu können.
+Akzeptanzkriterien:
+	* Die Aufteilung der Funktionalitäten auf Klassen folgt dem Prinzip Separation of Concerns (SoC)
+	* Bei der Erstellung von Klassen und Methoden wird das Prinzip Don't Repeat Yourself (DRY) eingehalten
+Hinweis:
+	* Diese Story ist eine Erweiterung zu Story "Softwarestruktur"
+Status:
+        - Implemented   
+        - Tested        
+        - Done          
+
