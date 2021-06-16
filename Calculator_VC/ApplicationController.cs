@@ -44,6 +44,7 @@ namespace Calculator_VC
 
                         // Result is the property d_Result of the object
                         consoleView.DisplayResult();
+                        // Reset the 1stRun switch, so that an entirely new calculation starts
                         consoleView.b_1stRun = true;
                         break;
 

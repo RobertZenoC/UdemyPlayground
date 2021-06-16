@@ -72,13 +72,21 @@ namespace Calculator_VC
                 s_prompt = s_prompt + "susbtract";
             }
 
-            DisplayPrompt(s_prompt + " (or 'quit' to quit): ");
+            DisplayPrompt(s_prompt + " (or 'new' to start a new calculation or 'quit' to quit): ");
 
             string s_input = Console.ReadLine();
 
             if (s_input == "quit")
+             // Quit the whole calculator
             {
                 b_Quit = true;
+
+                s_input = "0";
+            }
+            else if (s_input == "new")
+            // Quit the ongoing calculation and start a new one
+            {
+                b_1stRun = true;
 
                 s_input = "0";
             }
