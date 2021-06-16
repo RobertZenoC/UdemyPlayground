@@ -9,17 +9,21 @@ namespace Calculator_VC
     class CalculatorModel
     {
         // Property
+        public string s_Operator { get; private set; }
         public double d_Result { get; private set; }
 
         // Constructor
         public CalculatorModel()
         {
+            s_Operator = "";
             d_Result = 0;
         }
 
         // Methods
         public void Calculate(double d_1st, double d_2nd, string s_operator)
         {
+            s_Operator = s_operator;
+
             switch (s_operator)
             {
                 case "+":

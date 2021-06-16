@@ -44,15 +44,18 @@ namespace Calculator_VC
 
         static void Main(string[] args)
         {
-            ConsoleView consoleView = new ConsoleView();
-            consoleView.GetUserInput("Please enter the first number: ");
+            // Initialize objects on classes
+            CalculatorModel model = new CalculatorModel();
+            ConsoleView consoleView = new ConsoleView(model);
+
+            consoleView.GetNumber();
             string s_1st = consoleView.s_Input;
 
-            consoleView.GetUserInput("Please enter the second number: ");
-            string s_2nd = consoleView.s_Input;
-
-            consoleView.GetUserInput("Please enter the operator ('+', '-', '*' or '/': ");
+            consoleView.GetOperator();
             string s_operator = consoleView.s_Input;
+
+            consoleView.GetNumber();
+            string s_2nd = consoleView.s_Input;
 
             // Convert user input from string to double
             // TODO: Move to own method, once the structure gets more complex
@@ -67,22 +70,19 @@ namespace Calculator_VC
                 case "/":
                 case "*":
                     // ## Get result:
-                    // Initialize object on class
-                    CalculatorModel model = new CalculatorModel();
-
                     // Use method Calculate of object
                     model.Calculate(d_1st, d_2nd, s_operator);
 
                     // Result is the property d_Result of the object
-                    consoleView.DisplayPrompt("Result: " + model.d_Result);
+                    consoleView.DisplayResult();
                     break;
 
                 default:
-                    consoleView.DisplayPrompt("Invalid operator: " + s_operator);
+                    consoleView.DisplayInvalidOperator(s_operator);
                     break;
             }
 
-            consoleView.GetUserInput("(Press <CR> to quit)");
+            consoleView.WaitForQuit();
         }
 
     }
