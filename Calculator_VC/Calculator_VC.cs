@@ -47,43 +47,9 @@ namespace Calculator_VC
             // Initialize objects on classes
             CalculatorModel model = new CalculatorModel();
             ConsoleView consoleView = new ConsoleView(model);
+            ApplicationController controller = new ApplicationController(consoleView, model);
 
-            consoleView.GetNumber();
-            string s_1st = consoleView.s_Input;
-
-            consoleView.GetOperator();
-            string s_operator = consoleView.s_Input;
-
-            consoleView.GetNumber();
-            string s_2nd = consoleView.s_Input;
-
-            // Convert user input from string to double
-            // TODO: Move to own method, once the structure gets more complex
-            double d_1st = Convert.ToDouble(s_1st);
-            double d_2nd = Convert.ToDouble(s_2nd);
-
-            // Calculation
-            switch (s_operator)
-            {
-                case "+":
-                case "-":
-                case "/":
-                case "*":
-                    // ## Get result:
-                    // Use method Calculate of object
-                    model.Calculate(d_1st, d_2nd, s_operator);
-
-                    // Result is the property d_Result of the object
-                    consoleView.DisplayResult();
-                    break;
-
-                default:
-                    consoleView.DisplayInvalidOperator(s_operator);
-                    break;
-            }
-
-            consoleView.WaitForQuit();
+            controller.DoIt();
         }
-
     }
 }

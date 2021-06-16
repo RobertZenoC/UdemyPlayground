@@ -33,22 +33,18 @@ namespace Calculator_VC
             s_Input = s_input;
         }
 
-        public void GetNumber()
+        public double GetNumber()
         {
             DisplayPrompt("Please enter a number: ");
 
-            string s_input = Console.ReadLine();
-
-            s_Input = s_input;
+            return Convert.ToDouble(Console.ReadLine());
         }
 
-        public void GetOperator()
+        public string GetOperator()
         {
             DisplayPrompt("Please enter the operator ('+', '-', '*' or '/': ");
 
-            string s_input = Console.ReadLine();
-
-            s_Input = s_input;
+            return Console.ReadLine();
         }
 
         public void WaitForQuit()
