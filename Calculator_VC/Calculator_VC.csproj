@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="CalculatorModel.cs" />
     <Compile Include="Calculator_VC.cs" />
+    <Compile Include="ConsoleView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

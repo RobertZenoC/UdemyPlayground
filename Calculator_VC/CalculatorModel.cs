@@ -17,6 +17,7 @@ namespace Calculator_VC
             d_Result = 0;
         }
 
+        // Methods
         public void Calculate(double d_1st, double d_2nd, string s_operator)
         {
             switch (s_operator)
