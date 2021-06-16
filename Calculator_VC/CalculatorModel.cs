@@ -9,22 +9,22 @@ namespace Calculator_VC
     class CalculatorModel
     {
         // Property
-        public string s_Operator { get; private set; }
+        public double d_1st { get; set; }
+        public double d_2nd { get; set; }
+        public string s_Operator { get; set; }
         public double d_Result { get; private set; }
 
         // Constructor
         public CalculatorModel()
         {
-            s_Operator = "";
+            s_Operator = "unknown";
             d_Result = 0;
         }
 
         // Methods
-        public void Calculate(double d_1st, double d_2nd, string s_operator)
+        public void Calculate()
         {
-            s_Operator = s_operator;
-
-            switch (s_operator)
+            switch (s_Operator)
             {
                 case "+":
                     d_Result = Add(d_1st, d_2nd);

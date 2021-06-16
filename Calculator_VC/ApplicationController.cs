@@ -19,32 +19,46 @@ namespace Calculator_VC
 
         public void DoIt()
         {
-            double d_1st = consoleView.GetNumber();
-
-            string s_operator = consoleView.GetOperator();
-
-            double d_2nd = consoleView.GetNumber();
-
-            // Calculation
-            switch (s_operator)
+            while (consoleView.b_Quit == false)
             {
-                case "+":
-                case "-":
-                case "/":
-                case "*":
-                    // ## Get result:
-                    // Use method Calculate of object
-                    model.Calculate(d_1st, d_2nd, s_operator);
+                consoleView.GetUserInputCalculation();
 
-                    // Result is the property d_Result of the object
-                    consoleView.DisplayResult();
-                    break;
+                // Calculation
+                switch (model.s_Operator)
+                {
+                    case "+":
+                    case "-":
+                        // ## Get result:
+                        // Use method Calculate of object
+                        model.Calculate();
 
-                default:
-                    consoleView.DisplayInvalidOperator(s_operator);
-                    break;
+                        // Result is the property d_Result of the object
+                        consoleView.DisplayResult();
+                        break;
+
+                    case "/":
+                    case "*":
+                        // ## Get result:
+                        // Use method Calculate of object
+                        model.Calculate();
+
+                        // Result is the property d_Result of the object
+                        consoleView.DisplayResult();
+                        consoleView.b_1stRun = true;
+                        break;
+
+                    case "quit":
+                        break;
+                    default:
+                        consoleView.DisplayInvalidOperator(model.s_Operator);
+                        break;
+                }
             }
-            consoleView.WaitForQuit();
+
+            if (consoleView.b_Quit == false)
+            {
+                consoleView.WaitForQuit();
+            }
         }
     }
 }
