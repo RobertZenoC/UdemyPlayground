@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Calculator_VC
 {
-    class CalculatorModel
+    public class CalculatorModel
     {
         // Property
         public double d_1st { get; set; }
