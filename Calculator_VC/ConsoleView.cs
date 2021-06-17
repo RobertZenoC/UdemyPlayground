@@ -27,8 +27,17 @@ namespace Calculator_VC
             b_EmptyRun = false;
         }
 
+        // Variables
+        private double d_number;
+        private bool b_validNumber;
+        private int i_rangeCheck;
+        private string s_promptOoRange;
+
         public void GetUserInputCalculation()
         {
+            // Used for message when the number checked exceeds the limit
+            s_promptOoRange = "please choose a value between " + model.d_LowLimit + " and " + model.d_HighLimit;
+
             if (b_1stRun == true)
             {
                 model.d_1st = GetNumber();
@@ -48,7 +57,7 @@ namespace Calculator_VC
         }
         private double GetNumber()
         {
-            double d_number = 0;
+            d_number = 0;
 
             DisplayPrompt("Please enter a number (or 'quit' to quit): ");
 
@@ -60,18 +69,45 @@ namespace Calculator_VC
             }
             else
             {
-                while (!Double.TryParse(s_input, out d_number))
+                // Check the input
+                b_validNumber = false;
+
+                while (b_validNumber == false)
                 {
-                    Console.WriteLine(s_input + " is not a valid floating point number - please try again (or 'quit' to quit):");
-
-                    s_input = Console.ReadLine();
-
-                    if (s_input == "quit")
+                    // Is it numeric?
+                    if (!Double.TryParse(s_input, out d_number))
                     {
-                        b_Quit = true;
+                        Console.WriteLine("'" + s_input + "' is not a valid floating point number - please try again (or 'quit' to quit):");
+                    }
+                    else
+                    {
+                        i_rangeCheck = model.CheckRange(d_number);
 
-                        // Just that the TryParse is finally satisfied
-                        s_input = "0";
+                        switch (i_rangeCheck)
+                        {
+                            case -1:
+                                Console.WriteLine("'" + d_number + "' is too low - " + s_promptOoRange);
+                                break;
+                            case 1:
+                                Console.WriteLine("'" + d_number + "' is too high - " + s_promptOoRange);
+                                break;
+                            default:
+                                b_validNumber = true;
+                                break;
+                        }
+                    }
+
+                    if (b_validNumber == false)
+                    {
+                        s_input = Console.ReadLine();
+
+                        if (s_input == "quit")
+                        {
+                            b_Quit = true;
+
+                            // A bit of a lie here - but it's necessary to leave the loop
+                            b_validNumber = true;
+                        }
                     }
                 }
             }
@@ -80,7 +116,7 @@ namespace Calculator_VC
 
         private double GetAnotherNumber()
         {
-            double d_number = 0;
+            d_number = 0;
             string s_prompt = "Please enter another number to ";
             if (model.s_Operator == "+")
             {
@@ -108,28 +144,54 @@ namespace Calculator_VC
             }
             else
             {
-                while (!Double.TryParse(s_input, out d_number))
+                // Check the input
+                b_validNumber = false;
+
+                while (b_validNumber == false)
                 {
-                    Console.WriteLine("'" + s_input + "' is not a valid floating point number - please try again (or 'new' to start a new calculation or 'quit' to quit):");
-
-                    s_input = Console.ReadLine();
-
-                    if (s_input == "quit")
+                    // Is it numeric?
+                    if (!Double.TryParse(s_input, out d_number))
                     {
-                        // Quit the whole calculator
-                        b_Quit = true;
-
-                        // Just that the TryParse is finally satisfied
-                        s_input = "0";
+                        Console.WriteLine("'" + s_input + "' is not a valid floating point number - please try again (or 'quit' to quit):");
                     }
-                    else if (s_input == "new")
-                    // Quit the ongoing calculation and start a new one
+                    else
                     {
-                        b_1stRun = true;
-                        b_EmptyRun = true;
+                        i_rangeCheck = model.CheckRange(d_number);
 
-                        // Just that the TryParse is finally satisfied
-                        s_input = "0";
+                        switch (i_rangeCheck)
+                        {
+                            case -1:
+                                Console.WriteLine("'" + d_number + "' is too low - " + s_promptOoRange);
+                                break;
+                            case 1:
+                                Console.WriteLine("'" + d_number + "' is too high - " + s_promptOoRange);
+                                break;
+                            default:
+                                b_validNumber = true;
+                                break;
+                        }
+                    }
+
+                    if (b_validNumber == false)
+                    {
+                        s_input = Console.ReadLine();
+
+                        if (s_input == "quit")
+                        {
+                            b_Quit = true;
+
+                            // A bit of a lie here - but it's necessary to leave the loop
+                            b_validNumber = true;
+                        }
+                        else if (s_input == "new")
+                        // Quit the ongoing calculation and start a new one
+                        {
+                            b_1stRun = true;
+                            b_EmptyRun = true;
+
+                            // A bit of a lie here - but it's necessary to leave the loop
+                            b_validNumber = true;
+                        }
                     }
                 }
             }

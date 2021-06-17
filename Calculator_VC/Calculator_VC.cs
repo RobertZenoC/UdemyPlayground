@@ -44,8 +44,13 @@ namespace Calculator_VC
 
         static void Main(string[] args)
         {
+
             // Initialize objects on classes
             CalculatorModel model = new CalculatorModel();
+
+            // Set range for calculations
+            model.d_LowLimit = -100;
+            model.d_HighLimit = 1000;
             ConsoleView consoleView = new ConsoleView(model);
             ApplicationController controller = new ApplicationController(consoleView, model);
 
