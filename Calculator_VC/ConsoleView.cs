@@ -15,6 +15,7 @@ namespace Calculator_VC
         public string s_Input { get; private set; }
         public bool b_Quit { get; private set; }
         public bool b_1stRun { get; set; }
+        public bool b_EmptyRun { get; set; }
 
         // Constructor
         public ConsoleView(CalculatorModel Model)
@@ -23,6 +24,7 @@ namespace Calculator_VC
             s_Input = "";
             b_Quit = false;
             b_1stRun = true;
+            b_EmptyRun = false;
         }
 
         public void GetUserInputCalculation()
@@ -46,22 +48,39 @@ namespace Calculator_VC
         }
         private double GetNumber()
         {
-            DisplayPrompt("Please enter a number  (or 'quit' to quit): ");
+            double d_number = 0;
+
+            DisplayPrompt("Please enter a number (or 'quit' to quit): ");
 
             string s_input = Console.ReadLine();
 
             if (s_input == "quit")
             {
                 b_Quit = true;
-
-                s_input = "0";
             }
+            else
+            {
+                while (!Double.TryParse(s_input, out d_number))
+                {
+                    Console.WriteLine(s_input + " is not a valid floating point number - please try again (or 'quit' to quit):");
 
-            return Convert.ToDouble(s_input);
+                    s_input = Console.ReadLine();
+
+                    if (s_input == "quit")
+                    {
+                        b_Quit = true;
+
+                        // Just that the TryParse is finally satisfied
+                        s_input = "0";
+                    }
+                }
+            }
+            return d_number;
         }
 
         private double GetAnotherNumber()
         {
+            double d_number = 0;
             string s_prompt = "Please enter another number to ";
             if (model.s_Operator == "+")
             {
@@ -80,18 +99,41 @@ namespace Calculator_VC
              // Quit the whole calculator
             {
                 b_Quit = true;
-
-                s_input = "0";
             }
             else if (s_input == "new")
             // Quit the ongoing calculation and start a new one
             {
                 b_1stRun = true;
-
-                s_input = "0";
+                b_EmptyRun = true;
             }
+            else
+            {
+                while (!Double.TryParse(s_input, out d_number))
+                {
+                    Console.WriteLine("'" + s_input + "' is not a valid floating point number - please try again (or 'new' to start a new calculation or 'quit' to quit):");
 
-            return Convert.ToDouble(s_input);
+                    s_input = Console.ReadLine();
+
+                    if (s_input == "quit")
+                    {
+                        // Quit the whole calculator
+                        b_Quit = true;
+
+                        // Just that the TryParse is finally satisfied
+                        s_input = "0";
+                    }
+                    else if (s_input == "new")
+                    // Quit the ongoing calculation and start a new one
+                    {
+                        b_1stRun = true;
+                        b_EmptyRun = true;
+
+                        // Just that the TryParse is finally satisfied
+                        s_input = "0";
+                    }
+                }
+            }
+            return d_number;
         }
         private string GetOperator()
         {

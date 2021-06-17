@@ -23,36 +23,46 @@ namespace Calculator_VC
             {
                 consoleView.GetUserInputCalculation();
 
-                // Calculation
-                switch (model.s_Operator)
+                if (consoleView.b_EmptyRun == false)
                 {
-                    case "+":
-                    case "-":
-                        // ## Get result:
-                        // Use method Calculate of object
-                        model.Calculate();
+                    // Calculation
+                    switch (model.s_Operator)
+                    {
+                        case "+":
+                        case "-":
+                            // ## Get result:
+                            // Use method Calculate of object
+                            model.Calculate();
 
-                        // Result is the property d_Result of the object
-                        consoleView.DisplayResult();
-                        break;
+                            // Result is the property d_Result of the object
+                            consoleView.DisplayResult();
+                            break;
 
-                    case "/":
-                    case "*":
-                        // ## Get result:
-                        // Use method Calculate of object
-                        model.Calculate();
+                        case "/":
+                        case "*":
+                            // ## Get result:
+                            // Use method Calculate of object
+                            model.Calculate();
 
-                        // Result is the property d_Result of the object
-                        consoleView.DisplayResult();
-                        // Reset the 1stRun switch, so that an entirely new calculation starts
-                        consoleView.b_1stRun = true;
-                        break;
+                            // Result is the property d_Result of the object
+                            consoleView.DisplayResult();
+                            // Reset the 1stRun switch, so that an entirely new calculation starts
+                            consoleView.b_1stRun = true;
+                            break;
 
-                    case "quit":
-                        break;
-                    default:
-                        consoleView.DisplayInvalidOperator(model.s_Operator);
-                        break;
+                        case "quit":
+                            break;
+                        default:
+                            // Reset the 1stRun switch, so that an entirely new calculation starts
+                            consoleView.b_1stRun = true;
+
+                            consoleView.DisplayInvalidOperator(model.s_Operator);
+                            break;
+                    }
+                }
+                else
+                {
+                    consoleView.b_EmptyRun = false;
                 }
             }
 
