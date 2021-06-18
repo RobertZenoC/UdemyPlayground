@@ -31,7 +31,7 @@ namespace Calculator_VC
         // Acceptance Criteria: The principle of single level of abstraction is applied and if not, the exception is justified and documented
 
         // Iteration IV
-        // -------------
+        // ------------
         // User Story "Object oriented": Developer wants to work with objects, so that additional functions may more easily be implemented
         // Acceptance Criteria: Distribution of functionalities between classes adhers to the principal 'Separation of Concerns' (SoC)
         //                      and 'Don't repeat yourself' (DRY)
@@ -41,6 +41,19 @@ namespace Calculator_VC
         // User Story "Continuous Calculation": For additions and substractions, user wants to be able to throw in a third number, and a fourth, and...
         // Acceptance Criteria: - For the additional calculations, the same operation gets carried out as with the first one
         //                      - New result gets displayed without further interaction of the user
+
+        // Iteration V
+        // -----------
+        // User Story "Stability": - User wants to be able to correct invalid numbers right after having entered them instead of having the program crash
+        // User Story "Comfort": - User wants the program to recognize the control commands 'quit' and 'new' regardless of them being in capitals 
+        //                         or lower case letters or any mixture of that
+        //                       - User wants to get a message right after having entered an invalid operator and be able to correct it
+        // User Story "Correct Calculation": User wants to get a warning when trying to devide by zero instead of a wrong result (8, for some reason...)
+        // User Story "Range": Developer wants to be able to set upper and lower limits for the numbers that can be entered
+        // Acceptance Criteria: - Upper- and lower limit for numbers entered by the user can be set on every instance of the class CalculatorModel
+        //                      - Any error, such as non-numerical entries for numbers, numbers that are out of the range, invalid operators and 0 as a divisor
+        //                        gets prompted to the user right away and the user can correct the wrong entry
+        //                      - Processing of 'quit' and 'new' is not caps sensitive
 
         static void Main(string[] args)
         {
