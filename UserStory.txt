@@ -76,24 +76,73 @@ Iteration III
 Iteration VI
 ------------
 Titel: Fortlaufende Berechnung
-Story: Als Benutzer möchte ich eine weitere Zahl eingeben, um die vorherige Operation nochmals auszuführen mit dem vorherigen Resultat und der neuen Zahl.
+Story: Als Benutzer möchte ich eine weitere Zahl eingeben, um die vorherige Operation nochmals auszuführen 
+       mit dem vorherigen Resultat und einer neuen Zahl.
 Akzeptanzkriterien:
 	* Die Operation aus der vorherigen Berechnung wird nochmals verwendet
 	* Das neue Resultat wird ausgegeben ohne weitere Interaktion mit dem Benutzer
 Status:
-        - Implemented   
-        - Tested        
-        - Done          
+        - Implemented   2021.06.16
+        - Tested        2021.06.16
+        - Done          2021.06.16
 
 Titel: ObjektOrientierung
-Story: Als Entwickler möchte ich die Anwendung objektorientiert entwickeln, um später einfach weitere Funktionalitäten hinzufügen zu können.
+Story: Als Entwickler möchte ich die Anwendung objektorientiert entwickeln, um später einfach weitere Funktionalitäten 
+       hinzufügen zu können.
 Akzeptanzkriterien:
 	* Die Aufteilung der Funktionalitäten auf Klassen folgt dem Prinzip Separation of Concerns (SoC)
 	* Bei der Erstellung von Klassen und Methoden wird das Prinzip Don't Repeat Yourself (DRY) eingehalten
 Hinweis:
 	* Diese Story ist eine Erweiterung zu Story "Softwarestruktur"
 Status:
+        - Implemented   2021.06.16
+        - Tested        2021.06.16
+        - Done          2021.06.16
+
+Iteration V
+-----------
+Titel: Stabilität
+Story: Als Benutzer möchte ich die Möglichkeit haben die Eingabe einer ungültigen Zahl (nicht numerisch) zu korrigieren,
+       ohne dass das Programm abstürzt.
+       Des Weiteren soll die Gross/Kleinschreibung der Steuerbefehle 'quit' und 'new' keine Rolle spielen.
+Akzeptanzkriterien:
+	* Auf fehlerhafte Eingaben folgt ein Hinweis auf die Art des Fehlers und es lässt sich eine neue Zahl eingeben.
+	* Die Steuerbefehle haben die erwartete Wirkung ungeachtet der Gross/Kleinschreibung
+Status:
+        - Implemented   2021.06.18
+        - Tested        2021.06.18
+        - Done          2021.06.18
+
+Titel: Benutzerführung
+Story: Als Benutzer möchte ich nach Eingabe eines ungültigen Operators sofort einen entsprechenden Hinweis bekommen 
+       und die Möglichkeit haben, den Fehler gleich zu korrigieren.
+Akzeptanzkriterien:
+	* Nach Eingabe eines ungültigen Operators erscheint sofort ein entsprechender Hinweis 
+      und der Benutzer kann seine Eingabe gleich korrigieren
+Status:
+        - Implemented   2021.06.18
+        - Tested        2021.06.18
+        - Done          2021.06.18
+
+Titel: Zahlenbereich
+Story: Als Entwickler möchte ich eine Ober- und Untergrenze für die zu verwendenden Zahlen setzen können.
+       Wird eine Zahl ausserhalb dieser Grenzen eingegeben, soll der Benutzer die Möglichkeit haben, sie zu korrigeren.
+Akzeptanzkriterien:
+	* Die Klasse CalculatorModel kennt die Ober- und Untergrenze mit Defaultwerten.
+    * Auf diese Properties kann von aussen sowohl lesend wie schreibend zugegriffen werden
+	* Jede eingegebene Zahl wird sofort nach der Eingabe geprüft - ist sie ausserhalb der Limiten, 
+      wird ein entsprechender Hinweis ausgegeben und es kann eine neue Zahl eingegeben werden
+Status:
+        - Implemented   2021.06.18
+        - Tested        2021.06.18
+        - Done          2021.06.18
+
+Titel: DivideByZero
+Story: Als Benutzer möchte ich darauf hingewiesen werden, dass ich verbotenerweise eben eine 0 als Divisor eingegeben habe
+       und ich möchte diese Eingabe korrigieren können.
+Akzeptanzkriterien:
+	* Direkt nach Eingabe einer 0 als Divisor erscheint ein entsprechender Hinweis und es kann eine neue Zahl eingegeben werden
+Status:
         - Implemented   
         - Tested        
         - Done          
-

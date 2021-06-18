@@ -28,6 +28,7 @@ namespace Calculator_VC
         }
 
         // Variables
+        private string s_input;
         private double d_number;
         private bool b_validNumber;
         private int i_rangeCheck;
@@ -40,6 +41,9 @@ namespace Calculator_VC
 
             if (b_1stRun == true)
             {
+                // Initialize operator
+                model.s_Operator = "";
+
                 model.d_1st = GetNumber();
 
                 if (b_Quit == false)
@@ -61,9 +65,9 @@ namespace Calculator_VC
 
             DisplayPrompt("Please enter a number (or 'quit' to quit): ");
 
-            string s_input = Console.ReadLine();
+            s_input = Console.ReadLine();
 
-            if (s_input == "quit")
+            if (s_input.ToLower() == "quit")
             {
                 b_Quit = true;
             }
@@ -72,7 +76,7 @@ namespace Calculator_VC
                 // Check the input
                 b_validNumber = false;
 
-                while (b_validNumber == false)
+                while (!b_validNumber)
                 {
                     // Is it numeric?
                     if (!Double.TryParse(s_input, out d_number))
@@ -93,15 +97,24 @@ namespace Calculator_VC
                                 break;
                             default:
                                 b_validNumber = true;
+                                // Check for DivideByZero
+                                if (model.s_Operator == "/")
+                                {
+                                    if (d_number == 0)
+                                    {
+                                        Console.WriteLine("Divison by zero is not allowed - please enter another number (or 'quit' to quit):");
+                                        b_validNumber = false;
+                                    }
+                                }
                                 break;
                         }
                     }
 
-                    if (b_validNumber == false)
+                    if (!b_validNumber)
                     {
                         s_input = Console.ReadLine();
 
-                        if (s_input == "quit")
+                        if (s_input.ToLower() == "quit")
                         {
                             b_Quit = true;
 
@@ -129,14 +142,14 @@ namespace Calculator_VC
 
             DisplayPrompt(s_prompt + " (or 'new' to start a new calculation or 'quit' to quit): ");
 
-            string s_input = Console.ReadLine();
+            s_input = Console.ReadLine();
 
-            if (s_input == "quit")
+            if (s_input.ToLower() == "quit")
              // Quit the whole calculator
             {
                 b_Quit = true;
             }
-            else if (s_input == "new")
+            else if (s_input.ToLower() == "new")
             // Quit the ongoing calculation and start a new one
             {
                 b_1stRun = true;
@@ -147,7 +160,7 @@ namespace Calculator_VC
                 // Check the input
                 b_validNumber = false;
 
-                while (b_validNumber == false)
+                while (!b_validNumber)
                 {
                     // Is it numeric?
                     if (!Double.TryParse(s_input, out d_number))
@@ -172,18 +185,18 @@ namespace Calculator_VC
                         }
                     }
 
-                    if (b_validNumber == false)
+                    if (!b_validNumber)
                     {
                         s_input = Console.ReadLine();
 
-                        if (s_input == "quit")
+                        if (s_input.ToLower() == "quit")
                         {
                             b_Quit = true;
 
                             // A bit of a lie here - but it's necessary to leave the loop
                             b_validNumber = true;
                         }
-                        else if (s_input == "new")
+                        else if (s_input.ToLower() == "new")
                         // Quit the ongoing calculation and start a new one
                         {
                             b_1stRun = true;
@@ -201,7 +214,28 @@ namespace Calculator_VC
         {
             DisplayPrompt("Please enter the operator ('+', '-', '*' or '/'): ");
 
-            return Console.ReadLine();
+            s_input = Console.ReadLine();
+
+            // Check operator
+            bool b_validOperator = false;
+
+            while (!b_validOperator)
+            {
+                switch (s_input)
+                {
+                    case "+":
+                    case "-":
+                    case "*":
+                    case "/":
+                        b_validOperator = true;
+                        break;
+                    default:
+                        DisplayPrompt("'" + s_input + "' is not a valid operator (valid operators are '+', '-', '*' or '/') - please try again: ");
+                        s_input = Console.ReadLine();
+                        break;
+                }
+            }
+            return s_input;
         }
 
         public void WaitForQuit()
